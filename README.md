@@ -40,12 +40,9 @@ To get started with the project, follow these steps:
 4. **Open your browser and navigate to:**
 
    ```
-   http://localhost:3000
+   http://localhost:xxxx
    ```
 
-## Usage
-
-This project serves as a foundation for building a highly interactive and visually appealing website. You can explore the code to understand how to integrate React, TypeScript, Tailwind CSS, and GSAP into a single project.
 
 
 ## License
