@@ -30,6 +30,12 @@ export const hightlightsSlides = [
   },
   {
     id: 3,
+    textLists: ["All-new Action button.", "What will yours do?."],
+    video: highlightFourthVideo,
+    videoDuration: 3.63,
+  },
+  {
+    id: 4,
     textLists: [
       "iPhone 15 Pro Max has the",
       "longest optical zoom in",
@@ -37,12 +43,6 @@ export const hightlightsSlides = [
     ],
     video: highlightThirdVideo,
     videoDuration: 2,
-  },
-  {
-    id: 4,
-    textLists: ["All-new Action button.", "What will yours do?."],
-    video: highlightFourthVideo,
-    videoDuration: 3.63,
   },
 ];
 

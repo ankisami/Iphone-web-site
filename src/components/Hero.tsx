@@ -2,6 +2,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { heroVideo, smallHeroVideo } from "../utils";
 import { useEffect, useState } from "react";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const Hero = () => {
   const [videoSrc, setVideoSrc] = useState(
@@ -12,15 +15,20 @@ const Hero = () => {
     setVideoSrc(window.innerWidth > 760 ? heroVideo : smallHeroVideo);
   };
 
-  useEffect(() => {
-    window.addEventListener("resize", handleVideoSrc);
-
-    return () => window.removeEventListener("resize", handleVideoSrc);
-  }, []);
+  const handleScrollToHighlights = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    gsap.to(window, { duration: 1, scrollTo: "#highlights" });
+  };
 
   useGSAP(() => {
     gsap.to("#hero", { opacity: 1, duration: 1, delay: 2 });
     gsap.to("#cta", { opacity: 1, y: -50, duration: 1, delay: 2 });
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleVideoSrc);
+
+    return () => window.removeEventListener("resize", handleVideoSrc);
   }, []);
 
   return (
@@ -45,7 +53,11 @@ const Hero = () => {
         id="cta"
         className="flex flex-col items-center opacity-0 translate-y-20"
       >
-        <a href="#highlights" className="btn">
+        <a
+          href="#highlights"
+          className="btn"
+          onClick={handleScrollToHighlights}
+        >
           Buy
         </a>
         <p className="font-normal text-xl">From $199/month or 999$</p>
