@@ -1,17 +1,14 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useEffect, useRef, useState, MutableRefObject } from "react";
+import ModelView from "./ModelView";
+import { useEffect, useRef, useState } from "react";
 import { yellowImg } from "../utils";
 
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { View } from "@react-three/drei";
 import { models, sizes } from "../constants";
 import { animateWithGsapTimeline } from "../utils/animations";
-import React from "react";
-import ModelView from "./ModelView";
-// const LazyModelView = React.lazy(() => import("./ModelView"));
 
 const Model = () => {
   const [size, setSize] = useState("small");
@@ -21,8 +18,8 @@ const Model = () => {
     img: yellowImg,
   });
 
-  const cameraControlSmall = useRef<MutableRefObject<typeof OrbitControls>>();
-  const cameraControlLarge = useRef<MutableRefObject<typeof OrbitControls>>();
+  const cameraControlSmall = useRef();
+  const cameraControlLarge = useRef();
   const small = useRef(new THREE.Group());
   const large = useRef(new THREE.Group());
   const [smallRotation, setSmallRotation] = useState(0);
@@ -59,26 +56,26 @@ const Model = () => {
 
         <div className="flex flex-col items-center mt-5">
           <div className="w-full h-[75vh] md:h-[90vh] overflow-hidden relative">
-            <React.Suspense fallback={<div>Loading...</div>}>
-              <ModelView
-                index={1}
-                groupRef={small}
-                gsapType="view1"
-                controlRef={cameraControlSmall}
-                setRotationState={setSmallRotation}
-                item={model}
-                size={size}
-              />
-              <ModelView
-                index={2}
-                groupRef={large}
-                gsapType="view2"
-                controlRef={cameraControlLarge}
-                setRotationState={setLargeRotation}
-                item={model}
-                size={size}
-              />
-            </React.Suspense>
+            <ModelView
+              index={1}
+              groupRef={small}
+              gsapType="view1"
+              controlRef={cameraControlSmall}
+              setRotationState={setSmallRotation}
+              item={model}
+              size={size}
+            />
+
+            <ModelView
+              index={2}
+              groupRef={large}
+              gsapType="view2"
+              controlRef={cameraControlLarge}
+              setRotationState={setLargeRotation}
+              item={model}
+              size={size}
+            />
+
             <Canvas
               className="w-full h-full"
               style={{
