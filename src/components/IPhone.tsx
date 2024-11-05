@@ -13,7 +13,14 @@ interface ModelProps {
 }
 
 function Model(props: ModelProps) {
-  const { nodes, materials } = useGLTF("/models/scene.glb");
+  const { nodes, materials } = useGLTF("/models/scene.glb") as unknown as {
+    nodes: {
+      [key: string]: THREE.Mesh;
+    };
+    materials: {
+      [key: string]: THREE.Material;
+    };
+  };
 
   const texture = useTexture(props.item.img);
 
@@ -27,18 +34,20 @@ function Model(props: ModelProps) {
         material[0] !== "jlzuBkUzuJqgiAK" &&
         material[0] !== "xNrofRCqOXXHVZt"
       ) {
-        material[1].color = new THREE.Color(props.item.color[0]);
+        (material[1] as THREE.MeshStandardMaterial).color = new THREE.Color(
+          props.item.color[0]
+        );
       }
       material[1].needsUpdate = true;
     });
   }, [materials, props.item]);
 
   return (
-    <group {...props} dispose={null}>
+    <group {...props} scale={new THREE.Vector3(...props.scale)} dispose={null}>
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.ttmRoLdJipiIOmf.geometry}
+        geometry={(nodes.ttmRoLdJipiIOmf as THREE.Mesh).geometry}
         material={materials.hUlRcbieVuIiOXG}
         scale={0.01}
       />
