@@ -3,6 +3,9 @@
   <img src="https://github.com/user-attachments/assets/d55118c2-ff49-45bb-8e4c-adbcdfce43aa" alt="Apple project gif" />
 </div>
 
+
+[url : Live Demo](https://iphone-web-site.vercel.app/)
+
 ## Description
 
 This project is a clone of the Apple website, built with modern web development technologies including React, TypeScript, Tailwind CSS, and GSAP (GreenSock Animation Platform). The goal of this project is to replicate the sleek and responsive design of the Apple website while utilizing advanced animations and a robust development workflow.
