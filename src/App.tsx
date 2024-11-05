@@ -1,4 +1,4 @@
-import { Header, Hero, Highlights } from "./components";
+import { Header, Hero, Highlights, Model } from "./components";
 
 function App() {
   return (
@@ -6,6 +6,7 @@ function App() {
       <Header />
       <Hero />
       <Highlights />
+      <Model />
     </div>
   );
 }
