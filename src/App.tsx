@@ -5,6 +5,7 @@ import {
   Header,
   Hero,
   Highlights,
+  HowItWorks,
   Model,
 } from "./components";
 import * as Sentry from "@sentry/react";
@@ -25,6 +26,7 @@ function App() {
       <Highlights />
       <Model />
       <Features />
+      <HowItWorks />
       <Footer />
     </div>
   );
