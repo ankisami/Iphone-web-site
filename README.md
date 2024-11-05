@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Apple Website Clone</h1>
-  <img src="https://github.com/user-attachments/assets/70a1a80a-2c2f-430c-8777-edf74769712c" alt="Apple project gif" />
+  <img src="https://github.com/user-attachments/assets/d55118c2-ff49-45bb-8e4c-adbcdfce43aa" alt="Apple project gif" />
 </div>
 
 ## Description
