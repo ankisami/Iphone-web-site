@@ -13,7 +13,8 @@ interface ModelViewProps {
   index: number;
   groupRef: MutableRefObject<THREE.Group>;
   gsapType: string;
-  controlRef: MutableRefObject<OrbitControls>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  controlRef: MutableRefObject<any>;
   setRotationState: (angle: number) => void;
   size: string;
   item: {
