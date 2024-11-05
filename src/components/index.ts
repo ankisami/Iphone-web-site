@@ -5,3 +5,5 @@ export { default as VideoCarousel } from "./VideoCarousel";
 export { default as Model } from "./Model";
 export { default as ModelView } from "./ModelView";
 export { default as Lights } from "./Lights";
+export { default as Features } from "./Features";
+export { default as Footer } from "./Footer";
