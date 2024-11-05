@@ -78,21 +78,21 @@ const Model = () => {
                 item={model}
                 size={size}
               />
-              <Canvas
-                className="w-full h-full"
-                style={{
-                  position: "fixed",
-                  top: 0,
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  overflow: "hidden",
-                }}
-                eventSource={document.getElementById("root") || undefined}
-              >
-                <View.Port />
-              </Canvas>
             </React.Suspense>
+            <Canvas
+              className="w-full h-full"
+              style={{
+                position: "fixed",
+                top: 0,
+                bottom: 0,
+                left: 0,
+                right: 0,
+                overflow: "hidden",
+              }}
+              eventSource={document.getElementById("root") || undefined}
+            >
+              <View.Port />
+            </Canvas>
           </div>
 
           <div className="mx-auto w-full">
